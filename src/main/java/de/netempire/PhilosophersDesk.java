@@ -28,11 +28,16 @@ public class PhilosophersDesk {
         Fork fork4 = new Fork();
         Fork fork5 = new Fork();
 
-        PhilosopherLeftly platon = new PhilosopherLeftly("Platon", 1, fork1, fork2);
-        PhilosopherRightly aristoteles = new PhilosopherRightly("Aristoteles",2, fork2, fork3);
-        PhilosopherRightly herder = new PhilosopherRightly("Herder", 3,fork3, fork4);
-        PhilosopherRightly fichte = new PhilosopherRightly("Fichte", 4,fork4, fork5);
-        PhilosopherRightly schlegel = new PhilosopherRightly("Schlegel",5, fork5, fork1);
+        PhilosopherRightly platon = new PhilosopherRightly("Platon", 1, fork1, fork2);
+        platon.setEatingTime(750);
+        PhilosopherLeftly aristoteles = new PhilosopherLeftly("Aristoteles",2, fork2, fork3);
+        aristoteles.setEatingTime(1000);
+        PhilosopherLeftly herder = new PhilosopherLeftly("Herder", 3,fork3, fork4);
+        herder.setEatingTime(300);
+        PhilosopherLeftly fichte = new PhilosopherLeftly("Fichte", 4,fork4, fork5);
+        platon.setEatingTime(1500);
+        PhilosopherLeftly schlegel = new PhilosopherLeftly("Schlegel",5, fork5, fork1);
+        platon.setEatingTime(500);
 
         Thread platonThread = new Thread(platon);
         platonThread.start();

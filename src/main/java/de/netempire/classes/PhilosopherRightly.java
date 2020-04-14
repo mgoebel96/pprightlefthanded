@@ -10,8 +10,9 @@ public class PhilosopherRightly implements Runnable {
     public String name;
     public int id;
     public Fork right, left;
-    private volatile boolean exit = false;
+    public int eatingTime;
 
+    private volatile boolean exit = false;
     public PhilosopherRightly(String name, int id, Fork right, Fork left){
         this.name = name;
         this.id = id;
@@ -33,13 +34,13 @@ public class PhilosopherRightly implements Runnable {
                 right.get();
                 right.setId(id);
                 // turn left (critical moment)
-                sleep(1000);
+                sleep(100);
                 // taking left
                 left.get();
                 left.setId(id);
                 MyLogger.log(name + " hat zwei Gabeln. Er kann essen.");
                 // holding two forks -> can eat now
-                sleep(1000);
+                sleep(eatingTime);
             } catch (InterruptedException e) {
                 MyLogger.log(e.getMessage());
             }
@@ -53,5 +54,9 @@ public class PhilosopherRightly implements Runnable {
 
     public void stop(){
         exit = true;
+    }
+
+    public void setEatingTime(int eatingTime) {
+        this.eatingTime = eatingTime;
     }
 }
