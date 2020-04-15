@@ -7,12 +7,12 @@ import static java.lang.Thread.sleep;
 
 public class PhilosopherRightly implements Runnable {
 
-    public String name;
-    public int id;
-    public Fork right, left;
-    public int eatingTime;
-
+    String name;
+    int id;
+    Fork right, left;
+    int eatingTime;
     private volatile boolean exit = false;
+
     public PhilosopherRightly(String name, int id, Fork right, Fork left){
         this.name = name;
         this.id = id;

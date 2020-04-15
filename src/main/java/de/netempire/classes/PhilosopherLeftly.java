@@ -3,18 +3,15 @@ package de.netempire.classes;
 import de.netempire.PhilosophersDesk;
 import de.netempire.logger.MyLogger;
 
-import java.util.Random;
-
 import static java.lang.Thread.sleep;
 
 public class PhilosopherLeftly implements Runnable {
 
-    public String name;
-    public int id;
-    public Fork right, left;
-    public Random random = new Random();
+    String name;
+    int id;
+    Fork right, left;
+    int eatingTime;
     private volatile boolean exit = false;
-    public int eatingTime;
 
     public PhilosopherLeftly(String name, int id, Fork right, Fork left){
         this.name = name;

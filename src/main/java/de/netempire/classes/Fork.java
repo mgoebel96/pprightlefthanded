@@ -1,7 +1,5 @@
 package de.netempire.classes;
 
-import static java.lang.Thread.sleep;
-
 public class Fork {
 
     boolean taken;
@@ -12,20 +10,9 @@ public class Fork {
         taken = false;
     }
 
-    public void get() throws InterruptedException {
+    public void get() {
         // Fork is taken from the table. -> status: taken
-        while (taken) {
-            sleep(10); // wait until the fork is back on the table.
-        }
         taken = true;
-    }
-
-    public boolean isTaken() {
-        return taken;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public void setId(int id) {
